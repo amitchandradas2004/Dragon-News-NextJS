@@ -7,7 +7,7 @@ export const metadata = {
 };
 const Header = () => {
   return (
-    <div className="py-5 text-center space-y-2">
+    <div className="py-2 text-center space-y-2">
       <Image
         src={logo}
         alt="logo"
