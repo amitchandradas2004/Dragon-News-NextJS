@@ -28,6 +28,12 @@ export default function LoginPage() {
       rememberMe: true,
       callbackURL: "/",
     });
+    if (error) {
+      alert(error.message);
+    }
+    if (res) {
+      alert("Login Successful");
+    }
   };
   return (
     <div className="container mx-auto mt-5">
