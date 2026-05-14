@@ -20,14 +20,6 @@ export default function LoginPage() {
   const { register, handleSubmit } = useForm();
   const handleLoginFunction = (data) => {
     console.log(data, "data");
-
-    // const formData = new FormData(e.currentTarget);
-    // const data = {};
-    // // Convert FormData to plain object
-    // formData.forEach((value, key) => {
-    //   data[key] = value.toString();
-    // });
-    // alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
   };
 
   return (
