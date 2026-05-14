@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
@@ -19,8 +20,24 @@ import { useForm } from "react-hook-form";
 export default function RegisterPage() {
   const [isVisible, setIsVisible] = useState(false);
   const { register, handleSubmit } = useForm();
-  const handleRegisterFunction = (data) => {
-    console.log(data, "data");
+  const handleRegisterFunction = async (data) => {
+    const { email, name, password, url } = data;
+    console.log(email, name, password, url);
+
+    // console.log(data, "data");
+    const { data: res, error } = await authClient.signUp.email({
+      name: name,
+      email: email,
+      password: password,
+      callbackURL: "/",
+    });
+    console.log(res, error);
+    if (error) {
+      alert(error.massage);
+    }
+    if (res) {
+      alert("Sign Up Success");
+    }
   };
 
   return (
@@ -36,7 +53,7 @@ export default function RegisterPage() {
           <Label>Your Name</Label>
           <InputGroup className="rounded-full">
             <InputGroup.Input
-              {...register("text")}
+              {...register("name")}
               placeholder="Enter your name"
               className="rounded-full w-full"
             />
