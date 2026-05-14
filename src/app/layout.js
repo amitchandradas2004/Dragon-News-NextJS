@@ -1,7 +1,8 @@
+import dns from "node:dns/promises";
+dns.setServers(["1.1.1.1", "8.8.8.8"]);
 import { Montserrat, Poppins } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/shared/Header";
-import Navbar from "@/components/shared/Navbar";
+
 const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],

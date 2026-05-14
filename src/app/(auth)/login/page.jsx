@@ -21,7 +21,7 @@ export default function LoginPage() {
   const [isVisible, setIsVisible] = useState(false);
   const { register, handleSubmit } = useForm();
   const handleLoginFunction = async (data) => {
-    console.log(data, "data");
+    // console.log(data, "data");
     const { data: res, error } = await authClient.signIn.email({
       email: data.email, // required
       password: data.password, // required
