@@ -33,7 +33,14 @@ const RightSideBar = () => {
           <FaGoogle />
           Login With Google
         </button>
-        
+        <button
+          className="flex items-center text-black btn text-center  rounded-full p-2"
+          onClick={handleGithubSignIn}
+        >
+          {" "}
+          <FaGithub />
+          Login With Github
+        </button>
         <button
           className="flex items-center text-black btn text-center  rounded-full p-2"
           // onClick={handleGithubSignIn}
