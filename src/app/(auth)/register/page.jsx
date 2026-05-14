@@ -21,14 +21,14 @@ export default function RegisterPage() {
   const [isVisible, setIsVisible] = useState(false);
   const { register, handleSubmit } = useForm();
   const handleRegisterFunction = async (data) => {
-    const { email, name, password, url } = data;
-    // console.log(email, name, password, url);
-
+    const { email, name, password, photo } = data;
+    // console.log(email, name, password, photo);
     // console.log(data, "data");
     const { data: res, error } = await authClient.signUp.email({
       name: name,
       email: email,
       password: password,
+      image: photo,
       callbackURL: "/",
     });
     console.log(res, error);
@@ -61,11 +61,11 @@ export default function RegisterPage() {
           <FieldError />
         </TextField>
         {/* Image URL Feild */}
-        <TextField type="url">
+        <TextField isRequired type="photo">
           <Label>Photo URL</Label>
           <InputGroup className="rounded-full">
             <InputGroup.Input
-              {...register("url")}
+              {...register("photo")}
               placeholder="Enter Your Photo URL"
               className="rounded-full w-full"
             />
