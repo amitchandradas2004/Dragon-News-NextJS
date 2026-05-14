@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Check, Eye, EyeSlash } from "@gravity-ui/icons";
 import {
   Button,
@@ -11,6 +12,7 @@ import {
   Label,
   TextField,
 } from "@heroui/react";
+import { email } from "better-auth";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -18,10 +20,15 @@ import { useForm } from "react-hook-form";
 export default function LoginPage() {
   const [isVisible, setIsVisible] = useState(false);
   const { register, handleSubmit } = useForm();
-  const handleLoginFunction = (data) => {
+  const handleLoginFunction = async (data) => {
     console.log(data, "data");
+    const { data: res, error } = await authClient.signIn.email({
+      email: data.email, // required
+      password: data.password, // required
+      rememberMe: true,
+      callbackURL: "/",
+    });
   };
-
   return (
     <div className="container mx-auto mt-5">
       {" "}

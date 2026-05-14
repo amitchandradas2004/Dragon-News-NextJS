@@ -22,7 +22,7 @@ export default function RegisterPage() {
   const { register, handleSubmit } = useForm();
   const handleRegisterFunction = async (data) => {
     const { email, name, password, url } = data;
-    console.log(email, name, password, url);
+    // console.log(email, name, password, url);
 
     // console.log(data, "data");
     const { data: res, error } = await authClient.signUp.email({
@@ -33,7 +33,7 @@ export default function RegisterPage() {
     });
     console.log(res, error);
     if (error) {
-      alert(error.massage);
+      alert(error.message);
     }
     if (res) {
       alert("Sign Up Success");
